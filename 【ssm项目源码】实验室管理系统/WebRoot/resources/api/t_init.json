@@ -1,0 +1,59 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "welcome.jsp"
+  },
+  "logoInfo": {
+   "title": "LIMS系统",
+    "image": "../resources/images/icon.jpeg",
+    "href":""
+  },
+  "menuInfo": [
+    {
+      "title": "教师管理",
+      "icon": "fa fa-address-book",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "实验申请",
+          "href": "exApplication.jsp",
+          "icon": "fa fa-home",
+          "target": "_self" 
+        },
+        {
+          "title": "实验管理",
+          "href": "",
+          "icon": "fa fa-calendar",
+          "target": "_self",
+          "child": [
+            {
+              "title": "已通过",
+              "href": "ExList.jsp",
+              "icon": "fa fa-list-alt",
+              "target": "_self"
+            },
+            {
+              "title": "未通过",
+              "href": "unExList.jsp",
+              "icon": "fa fa-navicon",
+              "target": "_self"
+            }
+          ]
+        },
+        {
+          "title": "学生管理",
+          "href": "listStudent.jsp",
+          "icon": "fa fa-window-maximize",
+          "target": "_self"
+        },
+        {
+          "title": "报告评分",
+          "href": "report.jsp",
+          "icon": "fa fa-gears",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

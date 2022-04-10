@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!--开启注解扫描，只扫描controller -->
+	<context:component-scan base-package="com.walle">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller"></context:include-filter>
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
+	</context:component-scan>
+
+	<!--配置视图解析器对象 -->
+	<bean id="internalResourceViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<!--过 滤静态资源 -->
+	<mvc:resources location="/resources/" mapping="/resources/**" />
+	<mvc:resources location="/ok-admin/" mapping="/ok-admin/**" />
+	<mvc:resources location="/admin/xlsup/" mapping="/admin/xlsup/**" />
+	<!-- <mvc:resources location="/admin/xlsup/layui/" mapping="/admin/xlsup/layui/**" />
+	<mvc:resources location="/admin/xlsup/layui_exts/" mapping="/admin/xlsup/layui_exts/**" />
+	<mvc:resources location="/admin/xlsup/src/" mapping="/admin/xlsup/src/**" /> -->
+
+	<!--开启springmvc注解的支持 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+
+
+</beans>
